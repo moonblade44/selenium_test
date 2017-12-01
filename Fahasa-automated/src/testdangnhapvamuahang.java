@@ -1,0 +1,102 @@
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class testdangnhapvamuahang {
+
+	public static String driverPath = "E:/Soft/Webdriver/";
+	public static WebDriver driver;
+	public static void main(String[] args) throws InterruptedException {
+		System.out.println("Mo trinh duyet Chrome");
+		//Chinh lai duong dan cho chrome driver
+		System.setProperty("webdriver.chrome.driver", driverPath+"chromedriver.exe");
+		//Mo trinh duyet
+		driver = new ChromeDriver();
+		//Di den trang chu
+		driver.navigate().to("https://www.fahasa.com/");
+		//Mo phan dang nhap
+		WebElement Button = driver.findElement(By.cssSelector("#topbar > div > div.col-lg-7.col-md-7.col-sm-7.col-xs-12.header-right > div:nth-child(1) > div > ul > li.last > a"));
+		Button.click();
+		//Bam vao o Email
+		WebElement Email = driver.findElement(By.cssSelector("#youama-email"));
+		//Nhap Email
+		Email.sendKeys("giun@mailinator.com");
+		Thread.sleep(2000);
+		//Bam vao mat khau
+		WebElement pass = driver.findElement(By.cssSelector("#youama-password"));
+		//Nhap mat khau
+		pass.sendKeys("123456");
+		//Bam vao o dang nhap
+		WebElement dangnhap = driver.findElement(By.cssSelector("#wrapper > div.page > div.main-container.col1-layout > div > div > div > div > div.youama-login-window > div > div > div.youama-window-box.last.fhs-no-mt > div > button > span"));
+		dangnhap.click();
+		Thread.sleep(5000);
+		//Bam vao o tim kiem va nhap tu khoa
+		WebElement timkiem = driver.findElement(By.cssSelector("#search"));
+		timkiem.sendKeys("Sword Art Online");
+		//Bam nut tim kiem
+		WebElement Button1 = driver.findElement(By.cssSelector("#search_mini_form > div > div > span"));
+		Button1.click();
+		Thread.sleep(5000);
+		//Chon sach
+		WebElement chonsach = driver.findElement(By.cssSelector("#wrapper > div.page > div.main-container.col2-left-layout > div > div.container > div > div > div.col-main.col-lg-9.col-md-9.col-sm-12.col-xs-12 > div > div > div.category-products.row > ul > li:nth-child(2) > div.item-inner > div > h2 > a"));
+		chonsach.click();
+		Thread.sleep(5000);
+		//Chon mua
+		WebElement chonmua = driver.findElement(By.cssSelector("#product_addtocart_form > div.row > div.product-shop.col-md-9.col-sm-12.col-sms-12 > div > div.add-to-box.add-to-box2 > div.add-to-cart.col-md-6.col-sm-12.col-sms-12 > button > span > span"));
+		chonmua.click();
+		Thread.sleep(5000);
+		//Thanh toan
+		WebElement thanhtoan = driver.findElement(By.cssSelector("#shopping_cart"));
+		thanhtoan.click();
+		Thread.sleep(5000);
+		//Tiep tuc thanh toan
+		WebElement thanhtoan1 = driver.findElement(By.cssSelector("#block-totals > div.totals > ul > li > button > span > span"));
+		thanhtoan1.click();
+		Thread.sleep(5000);
+		//Dien thong tin ca nhan
+		WebElement ten = driver.findElement(By.cssSelector("#billing\\3a firstname"));
+		ten.clear();
+		ten.sendKeys("Dương");
+		WebElement ho = driver.findElement(By.cssSelector("#billing\\3a lastname"));
+		ho.clear();
+		ho.sendKeys("Nguyễn Hải");
+		WebElement dienthoai = driver.findElement(By.cssSelector("#billing\\3a telephone"));
+		dienthoai.sendKeys("01695847585");
+		WebElement dienthoai1 = driver.findElement(By.cssSelector("#billing\\3a billing-ctelephone"));
+		dienthoai1.sendKeys("01695847585");
+		WebElement diachi = driver.findElement(By.cssSelector("#billing\\3a street1"));
+		diachi.sendKeys("55/66 Mai Lão Bạng");
+		//Chon quoc gia Viet Nam tu dropdown menu
+		Select quocgia = new Select (driver.findElement(By.cssSelector("#billing\\3a country_id")));
+		quocgia.selectByVisibleText("Việt Nam");
+		//Chon thanh pho HCM 
+		Select thanhpho = new Select (driver.findElement(By.cssSelector("#billing\\3a region_id")));
+		thanhpho.selectByVisibleText("Hồ Chí Minh");
+		//Chon quan Tan Binh
+		Select quan = new Select (driver.findElement(By.cssSelector("#billing\\3a city_id")));
+		quan.selectByVisibleText("Quận Tân Bình");
+		//Chon phuong thuc thanh toan la visa
+		WebElement visa = driver.findElement(By.cssSelector("#checkout-payment-method-load > dt:nth-child(6) > label"));
+		visa.click();
+		//Xac nhan hoan tat 
+		WebElement xacnhan = driver.findElement(By.cssSelector("#onestepcheckout-button-place-order > span > span"));
+		xacnhan.click();
+		Thread.sleep(5000);
+		//Nhap thong tin the Visa
+		WebElement sothe = driver.findElement(By.cssSelector("#maskCardNumber"));
+		sothe.sendKeys("4716798624671372");
+		WebElement hoten = driver.findElement(By.cssSelector("#fullName"));
+		hoten.sendKeys("NGUYEN HAI DUONG");
+		WebElement ngay = driver.findElement(By.cssSelector("#ccExpire"));
+		ngay.sendKeys("11/18");
+		WebElement CVV = driver.findElement(By.cssSelector("#maskCardCVV"));
+		CVV.sendKeys("123");
+		//Xac nhan hoan tat giao dich
+		WebElement giaodich = driver.findElement(By.cssSelector("#btSubmit"));
+		giaodich.click();
+		Thread.sleep(5000);
+	}
+
+}

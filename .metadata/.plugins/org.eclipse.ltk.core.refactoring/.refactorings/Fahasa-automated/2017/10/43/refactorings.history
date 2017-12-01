@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;ChromeExample&apos; to &apos;testdangky&apos;&#x0D;&#x0A;- Original project: &apos;Fahasa-automated&apos;&#x0D;&#x0A;- Original element: &apos;ChromeExample&apos;&#x0D;&#x0A;- Renamed element: &apos;testdangky&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Rename similarly named elements&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ChromeExample&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{ChromeExample.java[ChromeExample" matchStrategy="1" name="testdangky" qualified="false" references="true" similarDeclarations="true" stamp="1509143655731" textual="false" version="1.0"/>
+</session>

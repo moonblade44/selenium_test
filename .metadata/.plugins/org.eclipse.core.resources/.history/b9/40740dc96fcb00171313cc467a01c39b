@@ -1,0 +1,44 @@
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class testdangnhap {
+
+	public static String driverPath = "E:/Soft/Webdriver/";
+	public static WebDriver driver;
+	public static void main(String[] args) throws InterruptedException {
+		System.out.println("Mo trinh duyet Chrome");
+		//Chinh lai duong dan cho chrome driver
+		System.setProperty("webdriver.chrome.driver", driverPath+"chromedriver.exe");
+		//Mo trinh duyet
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//Di den trang chu
+		driver.navigate().to("https://www.fahasa.com/");
+		//Mo phan dang nhap
+		WebElement Button = driver.findElement(By.cssSelector("#topbar > div > div.col-lg-7.col-md-7.col-sm-7.col-xs-12.header-right > div:nth-child(1) > div > ul > li.last > a"));
+		Button.click();
+		//Bam vao o Email
+		WebElement Email = driver.findElement(By.cssSelector("#youama-email"));
+		//Nhap Email
+		Email.sendKeys("giun@mailinator.com");
+		//Bam vao mat khau
+		WebElement pass = driver.findElement(By.cssSelector("#youama-password"));
+		//Nhap mat khau
+		pass.sendKeys("123456");
+		//Bam vao o dang nhap
+		WebElement dangnhap = driver.findElement(By.cssSelector("#wrapper > div.page > div.main-container.col1-layout > div > div > div > div > div.youama-login-window > div > div > div.youama-window-box.last.fhs-no-mt > div > button > span"));
+		dangnhap.click();
+		//Bam vao o tim kiem
+		WebElement timkiem = driver.findElement(By.cssSelector("#search"));
+		timkiem.sendKeys("Sword Art Online");
+		WebElement Button1 = driver.findElement(By.cssSelector("#search_mini_form > div > div > span"));
+		Button1.click();
+		
+		
+	}
+
+}
